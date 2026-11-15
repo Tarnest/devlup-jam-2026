@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://b6173wfry5vty" path="res://music/jam.mp3" id="2_t7v7a"]
 [ext_resource type="AudioStream" uid="uid://b0k1h7fsxqvin" path="res://music/cornipelago-past-theme.mp3" id="3_xx6b8"]
 [ext_resource type="Script" uid="uid://c87xxjiwwn6q0" path="res://scenes/dummy/time/time_swap.gd" id="4_f62st"]
+[ext_resource type="PackedScene" uid="uid://clo51nqecynl6" path="res://scenes/tilemap/background_tilemap.tscn" id="5_t7v7a"]
 [ext_resource type="PackedScene" uid="uid://dtq3ror6kqxks" path="res://scenes/tilemap/main_tile_map.tscn" id="5_w24lh"]
 [ext_resource type="PackedScene" uid="uid://b1clgmxbqdqse" path="res://scenes/tilemap/bridge_tile_map.tscn" id="6_g1ckg"]
 [ext_resource type="PackedScene" uid="uid://d2pdj71x7vy3t" path="res://scenes/player/player.tscn" id="7_tsmbm"]
@@ -39,6 +40,8 @@ present_tileset = NodePath("Present/MainTileMapPresent")
 [node name="Past" type="Node2D" parent="TimeSwap" unique_id=1157280643]
 visible = false
 
+[node name="BackgroundTilemap" parent="TimeSwap/Past" unique_id=899568984 instance=ExtResource("5_t7v7a")]
+
 [node name="MainTileMapPast" parent="TimeSwap/Past" unique_id=2083922039 instance=ExtResource("5_w24lh")]
 tile_map_data = PackedByteArray("AAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgADAAAAAAAQAAoAAgAAAAAAAAARAAoAAgAAAAAAAAASAAoAAgAAAAAAAAATAAoAAgAAAAAAAAAUAAoAAgAAAAAAAAAVAAoAAgAAAAAAAAAWAAoAAgAAAAAAAAAXAAoAAgAAAAAAAAAYAAoAAgAAAAAAAAAZAAoAAgAAAAAAAAAkAAoAAgAAAAAAAAAlAAoAAgAAAAAAAAAmAAoAAgAAAAAAAAAnAAoAAgAAAAAAAAA=")
 
@@ -50,6 +53,9 @@ position = Vector2(398, 259)
 collision_layer = 16
 
 [node name="Present" type="Node2D" parent="TimeSwap" unique_id=130517471]
+
+[node name="BackgroundTilemap" parent="TimeSwap/Present" unique_id=1345874010 instance=ExtResource("5_t7v7a")]
+tile_map_data = PackedByteArray("AAADABAAAQAAAAEAAAALABAAAQAAAAEAAAATABAAAQACAAEAAAAbABAAAQABAAEAAAAjABAAAQACAAEAAAArABAAAQAAAAEAAAAzABAAAQACAAEAAAA7ABAAAQABAAEAAABDABAAAQAAAAEAAABLABAAAQACAAEAAABTABAAAQAAAAEAAABbABAAAQAAAAEAAABbAAkAAQAAAAAAAABTAAkAAQAAAAAAAABLAAkAAQAAAAAAAABDAAkAAQAAAAAAAAA7AAkAAQAAAAAAAAAzAAkAAQAAAAAAAAArAAkAAQAAAAAAAAAjAAkAAQAAAAAAAAAbAAkAAQAAAAAAAAADABcAAQADAAEAADADABgAAQADAAEAADA=")
 
 [node name="MainTileMapPresent" parent="TimeSwap/Present" unique_id=1037921351 instance=ExtResource("5_w24lh")]
 tile_map_data = PackedByteArray("AAATAAoAAgAAAAEAAAASAAoAAgAAAAEAAAARAAoAAgAAAAEAAAAQAAoAAgAAAAEAAAAPAAoAAgAAAAEAAAAOAAoAAgAAAAEAAAANAAoAAgAAAAEAAAAMAAoAAgAAAAEAAAALAAoAAgAAAAEAAAAKAAoAAgAAAAEAAAAJAAoAAgAAAAEAAAAIAAoAAgAAAAEAAAAHAAoAAgAAAAEAAAAGAAoAAgAAAAEAAAAEAAoAAgAAAAEAAAADAAoAAgAAAAEAAAACAAoAAgAAAAEAAAABAAoAAgAAAAEAAAAAAAoAAgABAAEAAAAUAAoAAgAAAAEAAAAVAAoAAgAAAAEAAAAWAAoAAgAAAAEAAAAXAAoAAgAAAAEAAAAYAAoAAgAAAAEAAAAZAAoAAgACAAEAAAAFAAoAAgAAAAEAAAAkAAoAAgAAAAEAAAAlAAoAAgAAAAEAAAAmAAoAAgAAAAEAAAAnAAoAAgACAAEAAAA=")
