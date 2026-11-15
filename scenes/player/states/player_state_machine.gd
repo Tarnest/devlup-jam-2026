@@ -7,6 +7,8 @@ extends StateMachine
 @onready var jump_state: State = %Jump
 @onready var climb_state: State = %Climb
 @onready var time_swap_state: State = %TimeSwap
+@onready var audio_stream_player_sfx: AudioStreamPlayer2D = %PlayerAudioStreamPlayerSFX
+@onready var jump: AudioStream = preload("res://sfx/jump.mp3")
 
 func _ready() -> void:
 	change_state(state)
@@ -21,6 +23,8 @@ func _physics_process(_delta: float) -> void:
 	elif !player.is_climbing && !player.is_time_swapping:
 		if Input.is_action_pressed("jump") && player.is_on_floor():
 			change_state(jump_state)
+			audio_stream_player_sfx.stream = jump
+			audio_stream_player_sfx.play()
 		elif Input.is_action_pressed("move") || player.velocity != Vector2.ZERO:
 			change_state(move_state)
 		else:
@@ -29,8 +33,6 @@ func _physics_process(_delta: float) -> void:
 		change_state(jump_state)
 	
 func on_player_climb(climb_position: Vector2) -> void:
-	if player.current_item != null:
-		return
 	player.is_climbing = true
 	player.current_climb_position = climb_position
 	change_state(climb_state)

@@ -1,6 +1,7 @@
 extends Node
 
 signal feather_collect
+var is_menu: bool = true
 
 func _ready() -> void:
 	feather_collect.connect(_on_feather_collect)

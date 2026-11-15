@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://clo51nqecynl6" path="res://scenes/tilemap/background_tilemap.tscn" id="5_plydf"]
 [ext_resource type="PackedScene" uid="uid://d2pdj71x7vy3t" path="res://scenes/player/player.tscn" id="6_1seuy"]
 [ext_resource type="PackedScene" uid="uid://ba5gpwub2laup" path="res://scenes/items/collectible/collectible.tscn" id="7_2r1tl"]
-[ext_resource type="PackedScene" uid="uid://des22pakvjiey" path="res://scenes/objects/time_zone/time_zone.tscn" id="8_8a7m2"]
 
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2r1tl"]
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_cicjy"]
 stream_count = 2
 stream_0/stream = ExtResource("2_dywbp")
 stream_0/volume = 0.0
@@ -26,7 +25,7 @@ script = ExtResource("1_dd0lh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2087684283]
 unique_name_in_owner = true
-stream = SubResource("AudioStreamSynchronized_2r1tl")
+stream = SubResource("AudioStreamSynchronized_cicjy")
 autoplay = true
 
 [node name="AudioStreamPlayerSFX" type="AudioStreamPlayer2D" parent="." unique_id=581108965]
@@ -54,14 +53,6 @@ tile_map_data = PackedByteArray("AAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAA
 tile_map_data = PackedByteArray("AAADABAAAQAAAAEAAAALABAAAQACAAEAAAATABAAAQABAAEAAAAbABAAAQAAAAEAAAAjABAAAQACAAEAAAArABAAAQACAAEAAAADAAkAAQAAAAAAAAALAAkAAQAAAAAAAAATAAkAAQAAAAAAAAAbAAkAAQAAAAAAAAAjAAkAAQAAAAAAAAArAAkAAQAAAAAAAAADAAIAAQABAAAAAAALAAIAAQABAAAAAAATAAIAAQABAAAAAAAbAAIAAQABAAAAAAAjAAIAAQABAAAAAAArAAIAAQABAAAAAAA=")
 
 [node name="MainTileMapPresent" parent="TimeSwap/Present" unique_id=1037921351 instance=ExtResource("1_x6ivy")]
-tile_map_data = PackedByteArray("AAATAAoAAgAAAAAAAAASAAoAAgAAAAAAAAARAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAADAAoAAgAAAAAAAAACAAoAAgAAAAAAAAABAAoAAgAAAAAAAAAAAAoAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAgAAgAAAAAAAAAIAAYAAgAAAAAAAAAJAAYAAgAAAAAAAAAKAAYAAgAAAAAAAAALAAYAAgAAAAAAAAANAAQAAgAAAAAAAAAOAAQAAgAAAAAAAAAPAAQAAgAAAAAAAAAQAAQAAgAAAAAAAAA=")
-collision_enabled = false
-
-[node name="MainTileMapPresent" parent="TimeSwap/Present/MainTileMapPresent" unique_id=272381014 instance=ExtResource("1_x6ivy")]
-tile_map_data = PackedByteArray("AAATAAoAAgAAAAAAAAASAAoAAgAAAAAAAAARAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAADAAoAAgAAAAAAAAACAAoAAgAAAAAAAAABAAoAAgAAAAAAAAAAAAoAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAgAAgAAAAAAAAAIAAYAAgAAAAAAAAAJAAYAAgAAAAAAAAAKAAYAAgAAAAAAAAALAAYAAgAAAAAAAAANAAQAAgAAAAAAAAAOAAQAAgAAAAAAAAAPAAQAAgAAAAAAAAAQAAQAAgAAAAAAAAA=")
-collision_enabled = false
-
-[node name="MainTileMapPresent" parent="TimeSwap/Present/MainTileMapPresent/MainTileMapPresent" unique_id=761521049 instance=ExtResource("1_x6ivy")]
 tile_map_data = PackedByteArray("AAATAAoAAgAAAAEAAAASAAoAAgAAAAEAAAARAAoAAgAAAAEAAAAQAAoAAgAAAAEAAAAPAAoAAgAAAAEAAAAOAAoAAgAAAAEAAAANAAoAAgAAAAEAAAAMAAoAAgAAAAEAAAALAAoAAgAAAAEAAAAKAAoAAgAAAAEAAAAJAAoAAgAAAAEAAAAIAAoAAgAAAAEAAAAHAAoAAgAAAAEAAAAGAAoAAgAAAAEAAAAFAAoAAgAAAAEAAAAEAAoAAgAAAAEAAAADAAoAAgAAAAEAAAACAAoAAgAAAAEAAAABAAoAAgAAAAEAAAAAAAoAAgAAAAEAAAADAAgAAgAAAAEAAAAEAAgAAgAAAAEAAAAFAAgAAgAAAAEAAAAGAAgAAgAAAAEAAAAIAAYAAgAAAAEAAAAJAAYAAgAAAAEAAAAKAAYAAgAAAAEAAAALAAYAAgAAAAEAAAANAAQAAgAAAAEAAAAOAAQAAgAAAAEAAAAPAAQAAgAAAAEAAAAQAAQAAgAAAAEAAAA=")
 collision_enabled = false
 
@@ -85,4 +76,3 @@ position = Vector2(40.5, -18.5)
 shape = SubResource("RectangleShape2D_5ntmo")
 
 [editable path="Player"]
-[editable path="TimeZone"]

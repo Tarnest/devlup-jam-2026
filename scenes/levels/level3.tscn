@@ -72,8 +72,14 @@ limit_bottom = 350
 [node name="collectible" parent="." unique_id=1021277217 instance=ExtResource("8_a82vw")]
 position = Vector2(602, 32)
 
+<<<<<<< HEAD
 [node name="PlantableArea" parent="." unique_id=950168230 instance=ExtResource("6_7eb4w")]
 position = Vector2(496, 336)
+=======
+[node name="PlantableArea" parent="." unique_id=950168230 node_paths=PackedStringArray("vines") instance=ExtResource("6_7eb4w")]
+position = Vector2(496, 336)
+vines = NodePath("Vines")
+>>>>>>> 99fd6b6dee4c47b0139aa3e5df6e84bc8e5e5434
 
 [node name="Vines" type="Node2D" parent="PlantableArea" unique_id=1898201431]
 visible = false

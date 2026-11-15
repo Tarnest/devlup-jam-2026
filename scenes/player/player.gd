@@ -11,6 +11,10 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var time_swap_camera: Camera2D = %TimeSwapCamera
+@onready var audio_stream_player_sfx: AudioStreamPlayer2D = %PlayerAudioStreamPlayerSFX
+@onready var clock_forward: AudioStream = preload("res://sfx/clockforwardnopitch.mp3")
+@onready var clock_backward: AudioStream = preload("res://sfx/clockbackwardnopitch.mp3")
+@onready var plant: AudioStream = preload("res://sfx/plant.mp3")
 
 var time_locked: bool = false;
 
@@ -30,6 +34,7 @@ var current_climb_position: Vector2
 func _ready() -> void:
 	Global.player = self
 	Global.player_carry.connect(on_player_carry)
+	Global.time_swap_initiated.connect(_on_time_swap_initiated)
 
 func _physics_process(_delta: float) -> void:
 	if !is_on_floor() && !is_climbing && !is_time_swapping:
@@ -67,3 +72,13 @@ func on_player_carry(item: Item, scene: PackedScene) -> void:
 	add_child(new_item)
 	new_item.position = Vector2(0, -20)
 	current_item = new_item
+	
+	audio_stream_player_sfx.stream = plant
+	audio_stream_player_sfx.play()
+	
+func _on_time_swap_initiated() -> void:
+	if Global.is_present:
+		audio_stream_player_sfx.stream = clock_backward
+	else:
+		audio_stream_player_sfx.stream = clock_forward
+	audio_stream_player_sfx.play()

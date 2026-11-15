@@ -12,3 +12,6 @@ script = ExtResource("1_b7o7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1613938087]
 shape = SubResource("RectangleShape2D_b7o7a")
+
+[node name="AudioStreamPlayerSFX" type="AudioStreamPlayer2D" parent="." unique_id=1585612172]
+unique_name_in_owner = true

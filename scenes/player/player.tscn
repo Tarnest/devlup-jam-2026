@@ -214,3 +214,6 @@ libraries/ = SubResource("AnimationLibrary_ugbui")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=705344236]
 remote_path = NodePath("../StateMachine/TimeSwap/TimeSwapCamera")
+
+[node name="PlayerAudioStreamPlayerSFX" type="AudioStreamPlayer2D" parent="." unique_id=752047693]
+unique_name_in_owner = true
