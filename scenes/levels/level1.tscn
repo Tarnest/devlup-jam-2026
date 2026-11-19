@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://clo51nqecynl6" path="res://scenes/tilemap/background_tilemap.tscn" id="5_plydf"]
 [ext_resource type="PackedScene" uid="uid://d2pdj71x7vy3t" path="res://scenes/player/player.tscn" id="6_1seuy"]
 [ext_resource type="PackedScene" uid="uid://ba5gpwub2laup" path="res://scenes/items/collectible/collectible.tscn" id="7_2r1tl"]
+[ext_resource type="PackedScene" uid="uid://cpn6k8o051ate" path="res://scenes/ground/key_gate/key_gate.tscn" id="8_8a7m2"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_cicjy"]
 stream_count = 2
@@ -63,5 +64,20 @@ limit_bottom = 353
 
 [node name="collectible" parent="." unique_id=1021277217 instance=ExtResource("7_2r1tl")]
 position = Vector2(557, 57)
+
+[node name="KeyGate" parent="." unique_id=1522181517 instance=ExtResource("8_8a7m2")]
+position = Vector2(-21, 260)
+
+[node name="KeyGate2" parent="KeyGate" unique_id=1524130212 instance=ExtResource("8_8a7m2")]
+position = Vector2(678, 0.2631607)
+scale = Vector2(1, 1)
+
+[node name="KeyGate3" parent="KeyGate" unique_id=1504874046 instance=ExtResource("8_8a7m2")]
+position = Vector2(678, -31.05262)
+scale = Vector2(1, 1)
+
+[node name="KeyGate4" parent="KeyGate" unique_id=835273570 instance=ExtResource("8_8a7m2")]
+position = Vector2(678, -63.15788)
+scale = Vector2(1, 1)
 
 [editable path="Player"]

@@ -1,17 +1,24 @@
-[gd_scene format=4 uid="uid://cx2guob4u0bwn"]
+[gd_scene format=4 uid="uid://dkr0qysv5swy2"]
 
 [ext_resource type="Script" uid="uid://bto5hs3mgu8bm" path="res://scenes/main/main_scene.gd" id="1_g1ckg"]
 [ext_resource type="AudioStream" uid="uid://b6173wfry5vty" path="res://music/jam.mp3" id="2_t7v7a"]
 [ext_resource type="AudioStream" uid="uid://b0k1h7fsxqvin" path="res://music/cornipelago-past-theme.mp3" id="3_xx6b8"]
 [ext_resource type="Script" uid="uid://c87xxjiwwn6q0" path="res://scenes/dummy/time/time_swap.gd" id="4_f62st"]
 [ext_resource type="PackedScene" uid="uid://dtq3ror6kqxks" path="res://scenes/tilemap/main_tile_map.tscn" id="5_w24lh"]
-[ext_resource type="PackedScene" uid="uid://b1clgmxbqdqse" path="res://scenes/tilemap/bridge_tile_map.tscn" id="6_g1ckg"]
+[ext_resource type="PackedScene" uid="uid://ux4khvu53ltx" path="res://scenes/items/seed/corn_seed/corn_seed.tscn" id="7_ev8xs"]
 [ext_resource type="PackedScene" uid="uid://d2pdj71x7vy3t" path="res://scenes/player/player.tscn" id="7_tsmbm"]
-[ext_resource type="PackedScene" uid="uid://cpn6k8o051ate" path="res://scenes/ground/key_gate/key_gate.tscn" id="8_4vryo"]
+[ext_resource type="PackedScene" uid="uid://cthao4xerp2tt" path="res://scenes/items/seed/maple_seed/maple_seed.tscn" id="8_q6dln"]
 [ext_resource type="PackedScene" uid="uid://clo51nqecynl6" path="res://scenes/tilemap/background_tilemap.tscn" id="8_xx6b8"]
 [ext_resource type="PackedScene" uid="uid://ba5gpwub2laup" path="res://scenes/items/collectible/collectible.tscn" id="8_y3vdi"]
-[ext_resource type="PackedScene" uid="uid://d1qde2eraxkgl" path="res://scenes/items/key/key.tscn" id="9_g1ckg"]
-[ext_resource type="PackedScene" uid="uid://des22pakvjiey" path="res://scenes/objects/time_zone/time_zone.tscn" id="11_t7v7a"]
+[ext_resource type="PackedScene" uid="uid://b84kpfeabhy5y" path="res://scenes/items/seed/pumpkin_seed/pumpkin_seed.tscn" id="9_qtppw"]
+[ext_resource type="PackedScene" uid="uid://b0cb8r03b35b7" path="res://scenes/ground/plantable_area/plantable_area.tscn" id="12_atlnk"]
+[ext_resource type="PackedScene" uid="uid://csnx8a7jh3tkd" path="res://scenes/objects/vines/vine_bottom.tscn" id="13_7kkoh"]
+[ext_resource type="PackedScene" uid="uid://d1hdc64qorova" path="res://scenes/objects/vines/vine_middle.tscn" id="14_m1gbu"]
+[ext_resource type="PackedScene" uid="uid://bcv2sqm1tefoi" path="res://scenes/objects/vines/vine_top.tscn" id="15_yw4fb"]
+[ext_resource type="PackedScene" uid="uid://btfwybinplmky" path="res://scenes/objects/tree/maple_tree_base.tscn" id="16_1wpw8"]
+[ext_resource type="PackedScene" uid="uid://dsqysqjhjoosd" path="res://scenes/objects/tree/maple_tree_middle.tscn" id="17_w1hcc"]
+[ext_resource type="PackedScene" uid="uid://cb11ijjejq37m" path="res://scenes/objects/tree/maple_tree_top.tscn" id="18_ph4mq"]
+[ext_resource type="PackedScene" uid="uid://bk3dxo8gfygls" path="res://scenes/ground/trampoline/trampoline.tscn" id="19_npa1m"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2r1tl"]
 stream_count = 2
@@ -19,10 +26,6 @@ stream_0/stream = ExtResource("2_t7v7a")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("3_xx6b8")
 stream_1/volume = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx6b8"]
-resource_local_to_scene = true
-size = Vector2(864, 295)
 
 [node name="Level4" type="Node2D" unique_id=631564884]
 script = ExtResource("1_g1ckg")
@@ -35,65 +38,216 @@ autoplay = true
 [node name="AudioStreamPlayerSFX" type="AudioStreamPlayer2D" parent="." unique_id=2010632993]
 unique_name_in_owner = true
 
-[node name="TimeSwap" type="Node2D" parent="." unique_id=589447521 node_paths=PackedStringArray("past", "present", "past_tileset", "present_tileset", "bridge_past_tileset", "bridge_present_tileset")]
+[node name="TimeSwap" type="Node2D" parent="." unique_id=589447521 node_paths=PackedStringArray("past", "present", "past_tileset", "present_tileset")]
 script = ExtResource("4_f62st")
 past = NodePath("Past")
 present = NodePath("Present")
 past_tileset = NodePath("Past/MainTileMapPast")
 present_tileset = NodePath("Present/MainTileMapPresent")
-bridge_past_tileset = NodePath("Past/BridgeTileMap")
-bridge_present_tileset = NodePath("Present/BridgeTileMap")
 
 [node name="Past" type="Node2D" parent="TimeSwap" unique_id=1157280643]
-visible = false
-
-[node name="MainTileMapPast" parent="TimeSwap/Past" unique_id=2083922039 instance=ExtResource("5_w24lh")]
-tile_map_data = PackedByteArray("AAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAoAAgAAAAAAAAASAAoAAgAAAAAAAAATAAoAAgAAAAAAAAAUAAoAAgAAAAAAAAAVAAoAAgAAAAAAAAAWAAoAAgAAAAAAAAAXAAoAAgAAAAAAAAAYAAoAAgAAAAAAAAAZAAoAAgAAAAAAAAAkAAoAAgAAAAAAAAAlAAoAAgAAAAAAAAAmAAoAAgAAAAAAAAAnAAoAAgAAAAAAAAA=")
-
-[node name="BridgeTileMap" parent="TimeSwap/Past" unique_id=1233093331 instance=ExtResource("6_g1ckg")]
-tile_map_data = PackedByteArray("AAA8ABMAAAAJAAAAAAA8ABQAAAAEAAAAAAA9ABMAAAAJAAAAAAA9ABQAAAAEAAAAAAA9ABUAAAAGABAAAAA9ABYAAAAGABEAAAA9ABcAAAAGABIAAAA+ABMAAAAJAAAAAAA+ABQAAAAEAAAAAAA+ABUAAAAHABAAAAA+ABYAAAAHABEAAAA/ABMAAAAJAAAAAAA/ABQAAAAEAAAAAABAABMAAAAJAAAAAABAABQAAAAEAAAAAABBABMAAAAJAAAAAABBABQAAAAEAAAAAABCABMAAAAJAAAAAABCABQAAAAEAAAAAABDABMAAAAJAAAAAABDABQAAAAAAAQAAABEABMAAAAJAAAAAABEABQAAAABAAQAAABFABMAAAAJAAAAAABFABQAAAACAAQAAABFABUAAAACAAUAAABGABMAAAAJAAAAAABGABQAAAADAAQAAABGABUAAAADAAUAAABGABYAAAADAAYAAABHABMAAAAJAAAAAABHABQAAAAEAAQAAAA0ABMAAAAJAAAAAAA0ABQAAAAAAAAAAAA0ABUAAAAAAAEAAAA0ABYAAAAAAAIAAAA0ABcAAAAAAAMAAAA1ABMAAAAJAAAAAAA1ABQAAAABAAAAAAA1ABUAAAABAAEAAAA1ABYAAAABAAIAAAA1ABcAAAABAAMAAAA2ABMAAAAJAAAAAAA2ABQAAAACAAAAAAA2ABUAAAACAAEAAAA2ABYAAAACAAIAAAA3ABMAAAAJAAAAAAA3ABQAAAADAAAAAAA3ABUAAAADAAEAAAA4ABMAAAAJAAAAAAA4ABQAAAAEAAAAAAA4ABUAAAAEAAEAAAA5ABMAAAAJAAAAAAA5ABQAAAAEAAAAAAA6ABMAAAAJAAAAAAA6ABQAAAAEAAAAAAA7ABMAAAAJAAAAAAA7ABQAAAAEAAAAAAA+ABcAAAAHABIAAABEABUAAAABAAUAAABHABUAAAAEAAUAAABHABYAAAAEAAYAAABHABcAAAAEAAcAAAA=")
-collision_enabled = false
-
-[node name="KeyGate" parent="TimeSwap/Past" unique_id=1522181517 instance=ExtResource("8_4vryo")]
-z_index = 1
-position = Vector2(396, 260)
-collision_layer = 16
 
 [node name="BackgroundTilemap" parent="TimeSwap/Past" unique_id=899568984 instance=ExtResource("8_xx6b8")]
-tile_map_data = PackedByteArray("AAADAAIAAAABAAAAAAALAAIAAAABAAAAAAATAAIAAAABAAAAAAAbAAIAAAABAAAAAAAjAAIAAAABAAAAAAArAAIAAAABAAAAAAAzAAIAAAABAAAAAAA7AAIAAAABAAAAAABDAAIAAAABAAAAAABLAAIAAAABAAAAAABTAAIAAAABAAAAAAADAAkAAAAAAAAAAAALAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAAjAAkAAAAAAAAAAAArAAkAAAAAAAAAAAAzAAkAAAAAAAAAAAA7AAkAAAAAAAAAAABDAAkAAAAAAAAAAABLAAkAAAAAAAAAAABTAAkAAAAAAAAAAAADABAAAAAAAAEAAAALABAAAAABAAEAAAATABAAAAABAAEAAAAbABAAAAAAAAEAAAAjABAAAAAAAAEAAAArABAAAAAAAAEAAAAzABAAAAAAAAEAAAA7ABAAAAABAAEAAABDABAAAAABAAEAAABLABAAAAAAAAEAAABTABAAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAADABAAAAABAAEAAAALABAAAAABAAEAAAATABAAAAABAAEAAAAbABAAAAAAAAEAAAAjABAAAAABAAEAAAArABAAAAABAAEAAAAzABAAAAAAAAEAAAA7ABAAAAABAAEAAAA7AAkAAAAAAAAAAAAzAAkAAAAAAAAAAAArAAkAAAAAAAAAAAAjAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAATAAkAAAAAAAAAAAALAAkAAAAAAAAAAAADAAkAAAAAAAAAAAADAAIAAAABAAAAAAALAAIAAAABAAAAAAATAAIAAAABAAAAAAAbAAIAAAABAAAAAAAjAAIAAAABAAAAAAArAAIAAAABAAAAAAAzAAIAAAABAAAAAAA7AAIAAAABAAAAAAA7APv/AAABAAAAAAA7APT/AAABAAAAAAAzAPT/AAABAAAAAAAzAPv/AAABAAAAAAArAPv/AAABAAAAAAArAPT/AAABAAAAAAAjAPT/AAABAAAAAAAjAPv/AAABAAAAAAADAPv/AAABAAAAAAADAPT/AAABAAAAAAALAPT/AAABAAAAAAATAPT/AAABAAAAAAAbAPT/AAABAAAAAAAbAPv/AAABAAAAAAATAPv/AAABAAAAAAALAPv/AAABAAAAAAA=")
+
+[node name="MainTileMapPast" parent="TimeSwap/Past" unique_id=2083922039 instance=ExtResource("5_w24lh")]
+tile_map_data = PackedByteArray("AAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgADAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgADAAAAAAAQAAoAAgAAAAAAAAARAAoAAgACAAAAAAD/////AgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAD//wMAAgAAAAAAAAD//wQAAgAAAAAAAAD//wUAAgAAAAAAAAD//wYAAgAAAAAAAAD//wcAAgAAAAAAAAD//wgAAgAAAAAAAAD//wkAAgAAAAAAAAD//woAAgAAAAAAAAAeAAoAAgAAAAAAAAAeAAkAAgAAAAAAAAAeAAgAAgAAAAAAAAAeAAcAAgAAAAAAAAAeAAYAAgAAAAAAAAAeAAUAAgAAAAAAAAAeAAQAAgAAAAAAAAAeAAMAAgAAAAAAAAAeAAIAAgAAAAAAAAAeAAEAAgAAAAAAAAAeAAAAAgAAAAAAAAAeAP//AgAAAAAAAAAeAP7/AgAAAAAAAAAeAP3/AgAAAAAAAAAeAPz/AgAAAAAAAAAeAPv/AgAAAAAAAAAeAPr/AgAAAAAAAAAeAPn/AgAAAAAAAAAXAP3/AgAAAAAAAAAYAP3/AgAAAAAAAAAZAP3/AgAAAAAAAAAWAP3/AgABAAAAAAAHAAEAAgABAAAAAAAaAP3/AgACAAAAAAAQAAEAAgACAAAAAAAcAAUAAgACAAAAAAANAAUAAgACAAAAAAARAAUAAgABAAAAAAABAAUAAgABAAAAAAACAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAEAAUAAgADAAAAAAAFAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAIAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAASAAUAAgAAAAAAAAATAAUAAgADAAAAAAAUAAUAAgAAAAAAAAAVAAUAAgAAAAAAAAAWAAUAAgAAAAAAAAAXAAUAAgAAAAAAAAAYAAUAAgAAAAAAAAAZAAUAAgAAAAAAAAAaAAUAAgAAAAAAAAAbAAUAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAEAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAEAAgAAAAAAAAAOAAEAAgAAAAAAAAAPAAEAAgAAAAAAAAD///7/AgAAAAAAAAD///3/AgAAAAAAAAD///z/AgAAAAAAAAA=")
 
 [node name="Present" type="Node2D" parent="TimeSwap" unique_id=130517471]
 
+[node name="BackgroundTilemap" parent="TimeSwap/Present" unique_id=224713355 instance=ExtResource("8_xx6b8")]
+tile_map_data = PackedByteArray("AAADABAAAQAAAAEAAAALABAAAQAAAAEAAAATABAAAQABAAEAAAAbABAAAQACAAEAAAAjABAAAQACAAEAAAArABAAAQABAAEAAAAzABAAAQAAAAEAAAA7ABAAAQACAAEAAAA7AAkAAQAAAAAAAAAzAAkAAQAAAAAAAAArAAkAAQAAAAAAAAAjAAkAAQAAAAAAAAAbAAkAAQAAAAAAAAATAAkAAQAAAAAAAAALAAkAAQAAAAAAAAADAAkAAQAAAAAAAAADAAIAAQABAAAAAAADAPv/AQABAAAAAAADAPT/AQABAAAAAAALAAIAAQABAAAAAAALAPv/AQABAAAAAAALAPT/AQABAAAAAAATAAIAAQABAAAAAAAbAAIAAQABAAAAAAAjAAIAAQABAAAAAAArAAIAAQABAAAAAAAzAAIAAQABAAAAAAA7AAIAAQABAAAAAAATAPT/AQABAAAAAAATAPv/AQABAAAAAAAbAPv/AQABAAAAAAAbAPT/AQABAAAAAAAjAPv/AQABAAAAAAAjAPT/AQABAAAAAAArAPT/AQABAAAAAAAzAPT/AQABAAAAAAA7APT/AQABAAAAAAA7APv/AQABAAAAAAAzAPv/AQABAAAAAAArAPv/AQABAAAAAAA=")
+
 [node name="MainTileMapPresent" parent="TimeSwap/Present" unique_id=1037921351 instance=ExtResource("5_w24lh")]
-tile_map_data = PackedByteArray("AAATAAoAAgAAAAEAAAASAAoAAgAAAAEAAAARAAoAAgAAAAEAAAAQAAoAAgAAAAEAAAAPAAoAAgAAAAEAAAAOAAoAAgAAAAEAAAANAAoAAgAAAAEAAAAMAAoAAgAAAAEAAAALAAoAAgAAAAEAAAAKAAoAAgAAAAEAAAAJAAoAAgAAAAEAAAAIAAoAAgAAAAEAAAAHAAoAAgAAAAEAAAAGAAoAAgAAAAEAAAAEAAoAAgAAAAEAAAADAAoAAgAAAAEAAAACAAoAAgAAAAEAAAABAAoAAgAAAAEAAAAAAAoAAgABAAEAAAAUAAoAAgAAAAEAAAAVAAoAAgAAAAEAAAAWAAoAAgAAAAEAAAAXAAoAAgAAAAEAAAAYAAoAAgAAAAEAAAAZAAoAAgACAAEAAAAFAAoAAgAAAAEAAAAkAAoAAgAAAAEAAAAlAAoAAgAAAAEAAAAmAAoAAgAAAAEAAAAnAAoAAgACAAEAAAD//woAAgAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAARAAoAAgACAAEAAAAQAAoAAgAAAAEAAAAPAAoAAgADAAEAAAAOAAoAAgAAAAEAAAANAAoAAgAAAAEAAAAMAAoAAgADAAEAAAALAAoAAgAAAAEAAAAKAAoAAgAAAAEAAAAJAAoAAgAAAAEAAAAIAAoAAgAAAAEAAAAHAAoAAgAAAAEAAAAGAAoAAgAAAAEAAAAEAAoAAgAAAAEAAAADAAoAAgAAAAEAAAACAAoAAgAAAAEAAAABAAoAAgAAAAEAAAAAAAoAAgAAAAEAAAAFAAoAAgAAAAEAAAD//woAAgAAAAEAAAD//wkAAgAAAAEAAAD//wgAAgAAAAEAAAD//wcAAgAAAAEAAAD//wYAAgAAAAEAAAAeAAoAAgAAAAEAAAAeAAkAAgAAAAEAAAAeAAgAAgAAAAEAAAAeAAcAAgAAAAEAAAAeAAYAAgAAAAEAAAAeAAUAAgAAAAEAAAAeAAQAAgAAAAEAAAAeAAMAAgAAAAEAAAAeAAIAAgAAAAEAAAAeAAEAAgAAAAEAAAAeAAAAAgAAAAEAAAAeAP//AgAAAAEAAAD//wUAAgAAAAEAAAD//wQAAgAAAAEAAAD//wMAAgAAAAEAAAD//wIAAgAAAAEAAAD//wEAAgAAAAEAAAD//wAAAgAAAAEAAAD/////AgAAAAEAAAANAAUAAgACAAEAAAAMAAUAAgAAAAEAAAALAAUAAgAAAAEAAAAKAAUAAgAAAAEAAAAJAAUAAgAAAAEAAAAIAAUAAgAAAAEAAAAHAAUAAgAAAAEAAAAGAAUAAgAAAAEAAAARAAUAAgABAAEAAAASAAUAAgAAAAEAAAATAAUAAgADAAEAAAAUAAUAAgAAAAEAAAAVAAUAAgAAAAEAAAAWAAUAAgAAAAEAAAAXAAUAAgAAAAEAAAAYAAUAAgAAAAEAAAAZAAUAAgAAAAEAAAAaAAUAAgAAAAEAAAAbAAUAAgAAAAEAAAAcAAUAAgACAAEAAAAFAAUAAgAAAAEAAAAEAAUAAgADAAEAAAADAAUAAgAAAAEAAAACAAUAAgAAAAEAAAABAAUAAgABAAEAAAAOAAEAAgAAAAEAAAAPAAEAAgAAAAEAAAAQAAEAAgACAAEAAAANAAEAAgAAAAEAAAAMAAEAAgAAAAEAAAALAAEAAgAAAAEAAAAKAAEAAgAAAAEAAAAJAAEAAgAAAAEAAAAIAAEAAgAAAAEAAAAHAAEAAgABAAEAAAAWAP3/AgABAAEAAAAXAP3/AgAAAAEAAAAYAP3/AgAAAAEAAAAZAP3/AgAAAAEAAAAaAP3/AgACAAEAAAD///7/AgAAAAEAAAD///3/AgAAAAEAAAD///z/AgAAAAEAAAAeAP7/AgAAAAEAAAAeAP3/AgAAAAEAAAAeAPz/AgAAAAEAAAAeAPv/AgAAAAEAAAAeAPr/AgAAAAEAAAAeAPn/AgAAAAEAAAA=")
 collision_enabled = false
 
-[node name="BridgeTileMap" parent="TimeSwap/Present" unique_id=2072685829 instance=ExtResource("6_g1ckg")]
-tile_map_data = PackedByteArray("AAA0ABQAAAAAAAgAAAA1ABQAAAABAAgAAAA2ABQAAAACAAgAAAA0ABUAAAAAAAkAAAA0ABYAAAAAAAoAAAA1ABUAAAABAAkAAAA1ABYAAAABAAoAAAA2ABUAAAACAAkAAAA2ABYAAAACAAoAAAA3ABQAAAADAAgAAAA3ABUAAAADAAkAAABDABQAAAAAAAwAAABDABUAAAAAAA0AAABEABQAAAABAAwAAABEABUAAAABAA0AAABFABQAAAACAAwAAABFABUAAAACAA0AAABGABQAAAADAAwAAABGABUAAAADAA0AAABHABQAAAAEAAwAAABHABUAAAAEAA0AAABFABYAAAACAA4AAABGABYAAAADAA4AAABGABcAAAADAA8AAABHABYAAAAEAA4AAABHABcAAAAEAA8AAAA=")
-collision_enabled = false
+[node name="Seed" parent="TimeSwap/Present" unique_id=1372728815 instance=ExtResource("7_ev8xs")]
+position = Vector2(328, 296)
 
-[node name="BackgroundTilemap" parent="TimeSwap/Present" unique_id=311957801 instance=ExtResource("8_xx6b8")]
-tile_map_data = PackedByteArray("AAADABAAAQAAAAEAAAALABAAAQACAAEAAAATABAAAQACAAEAAAAbABAAAQABAAEAAAAjABAAAQAAAAEAAAArABAAAQABAAEAAAAzABAAAQACAAEAAAA7ABAAAQABAAEAAABDABAAAQAAAAEAAABLABAAAQACAAEAAABTABAAAQABAAEAAABTAAkAAQAAAAAAAABLAAkAAQAAAAAAAABDAAkAAQAAAAAAAAA7AAkAAQAAAAAAAAAzAAkAAQAAAAAAAAArAAkAAQAAAAAAAAAjAAkAAQAAAAAAAAAbAAkAAQAAAAAAAAATAAkAAQAAAAAAAAALAAkAAQAAAAAAAAADAAkAAQAAAAAAAAADAAIAAQABAAAAAAALAAIAAQABAAAAAAATAAIAAQABAAAAAAAbAAIAAQABAAAAAAAjAAIAAQABAAAAAAArAAIAAQABAAAAAAAzAAIAAQABAAAAAAA7AAIAAQABAAAAAABDAAIAAQABAAAAAABLAAIAAQABAAAAAABTAAIAAQABAAAAAAA=")
+[node name="MapleSeed" parent="TimeSwap/Present" unique_id=1337945287 instance=ExtResource("8_q6dln")]
+position = Vector2(81, 135)
+
+[node name="PumpkinSeed" parent="TimeSwap/Present" unique_id=911257677 instance=ExtResource("9_qtppw")]
+position = Vector2(773, 139)
 
 [node name="Player" parent="." unique_id=1394662000 instance=ExtResource("7_tsmbm")]
 position = Vector2(40, 301)
+collision_mask = 22
 
 [node name="TimeSwapCamera" parent="Player/StateMachine/TimeSwap" parent_id_path=PackedInt32Array(1394662000, 1411867919) index="1" unique_id=1852412090]
 position = Vector2(40, 301)
-limit_right = 1282
+limit_left = 0
+limit_top = -215
+limit_right = 959
+limit_bottom = 350
 
 [node name="collectible" parent="." unique_id=1021277217 instance=ExtResource("8_y3vdi")]
-position = Vector2(1222, 270)
+position = Vector2(783, -124)
 
-[node name="Key" parent="." unique_id=1373023930 instance=ExtResource("9_g1ckg")]
-position = Vector2(783, 302)
+[node name="PlantableArea" parent="." unique_id=950168230 node_paths=PackedStringArray("vines", "maple_tree", "pumpkin") instance=ExtResource("12_atlnk")]
+position = Vector2(496, 336)
+vines = NodePath("VineBottom")
+maple_tree = NodePath("MapleTreeBase")
+pumpkin = NodePath("Trampoline")
 
-[node name="TimeZone2" parent="." unique_id=2012884424 instance=ExtResource("11_t7v7a")]
-position = Vector2(772, 212)
+[node name="VineBottom" parent="PlantableArea" unique_id=2127513875 instance=ExtResource("13_7kkoh")]
+visible = false
+position = Vector2(0, -34)
 
-[node name="CollisionShape2D" parent="TimeZone2" index="0" unique_id=1175480012]
-position = Vector2(16, -16.5)
-shape = SubResource("RectangleShape2D_xx6b8")
+[node name="VineMiddle" parent="PlantableArea/VineBottom" unique_id=2100040519 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -31)
+
+[node name="VineMiddle2" parent="PlantableArea/VineBottom/VineMiddle" unique_id=792836042 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -30)
+
+[node name="VineTop" parent="PlantableArea/VineBottom/VineMiddle/VineMiddle2" unique_id=42176000 instance=ExtResource("15_yw4fb")]
+position = Vector2(0, -154)
+
+[node name="VineMiddle" parent="PlantableArea/VineBottom/VineMiddle" unique_id=1396393509 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -61)
+
+[node name="VineMiddle3" parent="PlantableArea/VineBottom/VineMiddle" unique_id=967062468 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -93)
+
+[node name="VineMiddle4" parent="PlantableArea/VineBottom/VineMiddle" unique_id=2077044715 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -124)
+
+[node name="VineMiddle5" parent="PlantableArea/VineBottom/VineMiddle" unique_id=1445398682 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -153)
+
+[node name="MapleTreeBase" parent="PlantableArea" unique_id=687658038 instance=ExtResource("16_1wpw8")]
+visible = false
+position = Vector2(0, -27)
+
+[node name="MapleTreeMiddle" parent="PlantableArea/MapleTreeBase" unique_id=236328037 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -30)
+
+[node name="MapleTreeMiddle2" parent="PlantableArea/MapleTreeBase" unique_id=191281831 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -56)
+
+[node name="MapleTreeMiddle3" parent="PlantableArea/MapleTreeBase" unique_id=1146448611 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -87)
+
+[node name="MapleTreeMiddle4" parent="PlantableArea/MapleTreeBase" unique_id=1267085173 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -113)
+
+[node name="MapleTreeTop" parent="PlantableArea/MapleTreeBase/MapleTreeMiddle4" unique_id=620664715 instance=ExtResource("18_ph4mq")]
+position = Vector2(0, -80)
+
+[node name="MapleTreeMiddle5" parent="PlantableArea/MapleTreeBase" unique_id=420730910 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -142)
+
+[node name="Trampoline" parent="PlantableArea" unique_id=1544766578 instance=ExtResource("19_npa1m")]
+visible = false
+position = Vector2(0, -24)
+
+[node name="PlantableArea2" parent="." unique_id=2136324677 node_paths=PackedStringArray("vines", "maple_tree", "pumpkin") instance=ExtResource("12_atlnk")]
+position = Vector2(402, 337)
+vines = NodePath("VineBottom")
+maple_tree = NodePath("MapleTreeBase")
+pumpkin = NodePath("Trampoline")
+
+[node name="VineBottom" parent="PlantableArea2" unique_id=1024913149 instance=ExtResource("13_7kkoh")]
+visible = false
+position = Vector2(0, -34)
+
+[node name="VineMiddle" parent="PlantableArea2/VineBottom" unique_id=1893248277 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -31)
+
+[node name="VineMiddle2" parent="PlantableArea2/VineBottom/VineMiddle" unique_id=1214307661 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -30)
+
+[node name="VineTop" parent="PlantableArea2/VineBottom/VineMiddle/VineMiddle2" unique_id=1354949625 instance=ExtResource("15_yw4fb")]
+position = Vector2(0, -29)
+
+[node name="MapleTreeBase" parent="PlantableArea2" unique_id=337341481 instance=ExtResource("16_1wpw8")]
+visible = false
+position = Vector2(0, -27)
+
+[node name="MapleTreeMiddle" parent="PlantableArea2/MapleTreeBase" unique_id=103525025 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -30)
+
+[node name="MapleTreeTop" parent="PlantableArea2/MapleTreeBase" unique_id=839559557 instance=ExtResource("18_ph4mq")]
+position = Vector2(1, -72)
+
+[node name="Trampoline" parent="PlantableArea2" unique_id=1479439159 instance=ExtResource("19_npa1m")]
+visible = false
+position = Vector2(0, -24)
+
+[node name="PlantableArea3" parent="." unique_id=1185637715 node_paths=PackedStringArray("vines", "maple_tree", "pumpkin") instance=ExtResource("12_atlnk")]
+position = Vector2(146, 176)
+vines = NodePath("VineBottom")
+maple_tree = NodePath("MapleTreeBase")
+pumpkin = NodePath("Trampoline")
+
+[node name="VineBottom" parent="PlantableArea3" unique_id=276745848 instance=ExtResource("13_7kkoh")]
+visible = false
+position = Vector2(0, -34)
+
+[node name="VineMiddle" parent="PlantableArea3/VineBottom" unique_id=935955056 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -31)
+
+[node name="VineMiddle2" parent="PlantableArea3/VineBottom/VineMiddle" unique_id=231327353 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -30)
+
+[node name="VineTop" parent="PlantableArea3/VineBottom/VineMiddle/VineMiddle2" unique_id=1932423597 instance=ExtResource("15_yw4fb")]
+position = Vector2(0, -29)
+
+[node name="MapleTreeBase" parent="PlantableArea3" unique_id=342150623 instance=ExtResource("16_1wpw8")]
+visible = false
+position = Vector2(0, -27)
+
+[node name="MapleTreeMiddle" parent="PlantableArea3/MapleTreeBase" unique_id=1887682934 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -30)
+
+[node name="MapleTreeTop" parent="PlantableArea3/MapleTreeBase" unique_id=1720149181 instance=ExtResource("18_ph4mq")]
+position = Vector2(1, -72)
+
+[node name="Trampoline" parent="PlantableArea3" unique_id=1173705302 instance=ExtResource("19_npa1m")]
+visible = false
+position = Vector2(0, -24)
+
+[node name="PlantableArea4" parent="." unique_id=42149833 node_paths=PackedStringArray("vines", "maple_tree", "pumpkin") instance=ExtResource("12_atlnk")]
+position = Vector2(625, 175)
+vines = NodePath("VineBottom")
+maple_tree = NodePath("MapleTreeBase")
+pumpkin = NodePath("Trampoline")
+
+[node name="VineBottom" parent="PlantableArea4" unique_id=444905865 instance=ExtResource("13_7kkoh")]
+visible = false
+position = Vector2(0, -34)
+
+[node name="VineMiddle" parent="PlantableArea4/VineBottom" unique_id=2021630318 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -31)
+
+[node name="VineMiddle2" parent="PlantableArea4/VineBottom/VineMiddle" unique_id=626455653 instance=ExtResource("14_m1gbu")]
+position = Vector2(0, -30)
+
+[node name="VineTop" parent="PlantableArea4/VineBottom/VineMiddle/VineMiddle2" unique_id=6300507 instance=ExtResource("15_yw4fb")]
+position = Vector2(0, -29)
+
+[node name="MapleTreeBase" parent="PlantableArea4" unique_id=524070990 instance=ExtResource("16_1wpw8")]
+visible = false
+position = Vector2(0, -27)
+
+[node name="MapleTreeMiddle" parent="PlantableArea4/MapleTreeBase" unique_id=2138568701 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -30)
+
+[node name="MapleTreeMiddle2" parent="PlantableArea4/MapleTreeBase" unique_id=495127214 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -56)
+
+[node name="MapleTreeMiddle3" parent="PlantableArea4/MapleTreeBase" unique_id=1860139771 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -87)
+
+[node name="MapleTreeMiddle4" parent="PlantableArea4/MapleTreeBase" unique_id=2012739718 instance=ExtResource("17_w1hcc")]
+position = Vector2(0, -113)
+
+[node name="MapleTreeTop" parent="PlantableArea4/MapleTreeBase/MapleTreeMiddle4" unique_id=1794118689 instance=ExtResource("18_ph4mq")]
+position = Vector2(1, -46)
+
+[node name="Trampoline" parent="PlantableArea4" unique_id=1087845908 instance=ExtResource("19_npa1m")]
+visible = false
+position = Vector2(0, -24)
 
 [editable path="Player"]
-[editable path="TimeZone2"]
